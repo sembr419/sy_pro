@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="v28WPAra3QieVv12FyTY1V7I2V4tLfF96EKIvGE2">
+
+    <title>Incentive систем</title>
+
+    <!-- Styles -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.mobicom.mn/favicon.ico">
+    <link href="{{ asset('bootstrap-3.3.7-dist/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bootstrap-3.3.7-dist/css/app.css') }}" rel="stylesheet">
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+    {% include '@incentiveApp/Layout/navigation.html.twig' %}
+        {% if breadcrumbs is defined %}
+            <div class="container content">
+                <ol class="breadcrumb">
+                    {% for breadcrumb in breadcrumbs %}
+                        {% if breadcrumb.isActive == 1 %}
+                            <li class="active">{{ breadcrumb.name }}</li>
+                        {% else %}
+                            <li><a href="{{ path(breadcrumb.path) }}">{{ breadcrumb.name }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </div>
+        {% endif %}
+    <div class="container content">
+        {% block body %} {% endblock %}
+    </div>
+    <footer>
+        © 2015 - {{ 'now'|date('Y') }} MobiCom Corporation LLC
+    </footer>
+    {% block modal %}
+    {% endblock %}
+    <script src="{{ asset("bootstrap-3.3.7-dist/bootstrap/js/bootstrap.min.js") }}"></script>
+    <script src="{{ asset("bootstrap-3.3.7-dist/js/app.js") }}"></script>
+    {% block js %}
+    {% endblock %}
+
+
+</body>
+</html>

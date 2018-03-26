@@ -1,0 +1,17 @@
+{% extends '@App/base.html.twig' %}
+{% block body %}
+    <div class="col-xs-12 col-md-12">
+        <h2>{{ title }}</h2>
+    </div>
+
+    <div class="col-xs-12 col-md-12">
+        {{ form_start(form_test) }}
+        {{ form_widget(form_test) }}
+        <div class="col-sm-2"></div>
+        <div class="col-sm-9">
+            <input class="btn btn-primary btn-rounded" type="submit" value="Хадгалах"/>
+        </div>
+
+        {{ form_end(form_test) }}
+    </div>
+{% endblock %}
