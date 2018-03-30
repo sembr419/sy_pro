@@ -17,26 +17,7 @@
     {% endblock %}
 </head>
 <body>
-    {% include '@incentiveApp/Layout/navigation.html.twig' %}
-        {% if breadcrumbs is defined %}
-            <div class="container content">
-                <ol class="breadcrumb">
-                    {% for breadcrumb in breadcrumbs %}
-                        {% if breadcrumb.isActive == 1 %}
-                            <li class="active">{{ breadcrumb.name }}</li>
-                        {% else %}
-                            <li><a href="{{ path(breadcrumb.path) }}">{{ breadcrumb.name }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ol>
-            </div>
-        {% endif %}
-    <div class="container content">
-        {% block body %} {% endblock %}
-    </div>
-    <footer>
-        © 2015 - {{ 'now'|date('Y') }} MobiCom Corporation LLC
-    </footer>
+
     {% block modal %}
     {% endblock %}
     <script src="{{ asset("bootstrap-3.3.7-dist/bootstrap/js/bootstrap.min.js") }}"></script>

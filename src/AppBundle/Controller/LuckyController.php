@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 class LuckyController extends Controller
 {
     /**
-     * @Route("/action", name="homepage")
+     * @Route("/profile", name="mainpage")
      */
     public function indexAction()
     {

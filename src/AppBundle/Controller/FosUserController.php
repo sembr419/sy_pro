@@ -17,18 +17,34 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class FosUserController extends Controller
 {
+
+  //  public function newAction(Request $request)
+ //   {
+        //$user = new FosUser();
+   //     $em = $this->getDoctrine()->getManager();
+       // $form = $this->createForm('FosUserType',$user,array(
+        //    'em' => $em
+      //  ));
+       // $form->handleRequest($request);
+ //   }
     /**
-     * @Route("/register-la", name="register-la")
-     * @Method({"GET", "POST"})
-     * @Template()
+     * @Route("/reg", name="reg")
+     * @Method({"GET", "POST"})x
      */
-    public function newAction(Request $request)
-    {
-        $user = new FosUser();
+
+    public  function editRoleAction(Request $request){
+
+        $fosuser = new \AppBundle\Entity\FosUser();
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm('FosUserType',$user,array(
+        $editForm = $this->createForm('AppBundle\Form\FosUserType',$fosuser,  array(
             'em' => $em
         ));
-        $form->handleRequest($request);
+        $editForm->handleRequest($request);
+ //       return $this->render('@App/FosUser/role.html.twig',array('form' => $form->createView()));
+        return array(
+            'twig' => $this->render('AppBundle:FosUser:role.html.twig'),
+
+            'form' => $editForm->createView()
+        );
     }
 }
